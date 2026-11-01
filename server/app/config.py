@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    app_name: str = "AskCart"
+    app_name: str = "BuyWizly"
     env: str = "dev"  # dev | prod
     secret_key: str = "change-this-secret-before-deploying"
     token_days: int = 7

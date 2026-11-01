@@ -1,7 +1,7 @@
 # Payments & Privacy
 
 ## Payment methods
-AskCart accepts UPI, credit and debit cards, net banking and Cash on Delivery for orders up to Rs 50,000. Card details are processed by a PCI-DSS compliant payment partner and are never stored on AskCart servers.
+BuyWizly accepts UPI, credit and debit cards, net banking and Cash on Delivery for orders up to Rs 50,000. Card details are processed by a PCI-DSS compliant payment partner and are never stored on BuyWizly servers.
 
 ## Failed payments
 If money is debited but the order is not confirmed, the amount is automatically reversed within 5-7 business days.

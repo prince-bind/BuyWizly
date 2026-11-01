@@ -40,7 +40,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-      <footer className="foot wrap muted">AskCart · RAG-powered shopping assistant · demo project</footer>
+      <footer className="foot wrap muted">BuyWizly · RAG-powered shopping assistant · demo project</footer>
       <AuthModal /><ChatWidget />
       <div className="toasts">{toasts.map((t) => <div key={t.id} className={`toast ${t.kind}`}>{t.msg}</div>)}</div>
     </>

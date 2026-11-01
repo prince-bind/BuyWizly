@@ -98,11 +98,11 @@ export default function ChatWidget() {
 
   return (
     <>
-      {!chatOpen && <button className="fab" onClick={() => setChatOpen(true)} aria-label="Open AI assistant"><Sparkles size={22} /><span>Ask AskCart</span></button>}
+      {!chatOpen && <button className="fab" onClick={() => setChatOpen(true)} aria-label="Open AI assistant"><Sparkles size={22} /><span>Ask BuyWizly</span></button>}
       {chatOpen && (
-        <section className="chat" role="dialog" aria-label="AskCart assistant">
+        <section className="chat" role="dialog" aria-label="BuyWizly assistant">
           <header>
-            <div className="row"><span className="avatar"><Bot size={18} /></span><div><b>AskCart</b><small>Products · Orders · Policies</small></div></div>
+            <div className="row"><span className="avatar"><Bot size={18} /></span><div><b>BuyWizly</b><small>Products · Orders · Policies</small></div></div>
             <div className="row">
               <button className="icon" onClick={openHistory} title="History"><History size={17} /></button>
               <button className="icon" onClick={reset} title="New chat"><Plus size={17} /></button>
