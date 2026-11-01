@@ -11,7 +11,7 @@ export default function Header() {
     <>
       <header className="topbar">
         <div className="wrap row between">
-          <Link to="/" className="logo"><span><Sparkles size={18} /></span>ShopSmart<b>AI</b></Link>
+          <Link to="/" className="logo"><span><Sparkles size={18} /></span>AskCart</Link>
           <form className="search" onSubmit={(e) => { e.preventDefault(); nav(`/?q=${encodeURIComponent(q)}`); }}>
             <Search size={17} /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products, brands, categories…" />
           </form>

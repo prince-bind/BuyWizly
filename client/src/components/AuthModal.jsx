@@ -19,7 +19,7 @@ export default function AuthModal() {
       <form className="modal" onClick={(e) => e.stopPropagation()} onSubmit={submit}>
         <button type="button" className="icon close" onClick={() => setAuthOpen(false)}><X size={18} /></button>
         <h2>{mode === "login" ? "Welcome back" : "Create your account"}</h2>
-        <p className="muted">{mode === "login" ? "Sign in to shop, track orders and chat with the assistant." : "Join ShopSmart in a few seconds."}</p>
+        <p className="muted">{mode === "login" ? "Sign in to shop, track orders and chat with the assistant." : "Join AskCart in a few seconds."}</p>
         {mode === "register" && <label>Name<input required value={f.name} onChange={set("name")} autoComplete="name" /></label>}
         <label>Email<input required type="email" value={f.email} onChange={set("email")} autoComplete="email" /></label>
         <label>Password<input required type="password" minLength={8} value={f.password} onChange={set("password")} autoComplete={mode === "login" ? "current-password" : "new-password"} /></label>

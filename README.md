@@ -1,4 +1,4 @@
-# ShopSmart AI 🛍️✨
+# AskCart 🛍️✨
 
 A full-stack e-commerce app with a **RAG-powered shopping assistant**. Customers describe what they want in plain English, track orders, compare products, and ask policy questions — answers are **grounded in your documents and cite their sources**.
 
@@ -93,7 +93,7 @@ Notes: the free API instance sleeps after ~15 min idle (first request then takes
 
 ## 📄 Resume bullets (pick 3–4)
 
-**ShopSmart AI — RAG-powered shopping assistant** · *FastAPI, React, ChromaDB, LangChain, Groq (gpt-oss-20b), PostgreSQL*
+**AskCart — RAG-powered shopping assistant** · *FastAPI, React, ChromaDB, LangChain, Groq (gpt-oss-20b), PostgreSQL*
 - Built an end-to-end **RAG pipeline** (heading-aware chunking, ChromaDB embeddings, hybrid dense+keyword retrieval, cited answers) over policy documents, with an **answerability gate** that refuses low-confidence queries instead of hallucinating.
 - Designed a **tool-routing agent** (LLM intent router + rule fallback, conversation memory) dispatching to product search, order tracking, policy RAG and comparison; enforced budget/category constraints in SQL so the model can rank but never violate user constraints.
 - Implemented **token streaming (SSE)** with rich UI cards, source citations, reasoning traces and thumbs feedback; logged every query for analytics and a *knowledge-gap* report.

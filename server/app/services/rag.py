@@ -17,7 +17,7 @@ from .vectorstore import Hit, get_store, tokenize
 
 log = logging.getLogger(__name__)
 
-SYSTEM_PROMPT = """You are ShopSmart's customer-support assistant.
+SYSTEM_PROMPT = """You are AskCart's customer-support assistant.
 Answer the customer's question using ONLY the numbered context passages inside <context>.
 Rules:
 - Cite the passages you used like [1] or [2] right after the claim.
@@ -140,7 +140,7 @@ def _extractive(question: str, hits: list[Hit]) -> str:
 
 
 NOT_FOUND = ("I couldn't find that in our policy documents, so I don't want to guess. "
-             "Please contact ShopSmart support and they'll help you directly.")
+             "Please contact AskCart support and they'll help you directly.")
 
 
 def prepare(question: str, user_tier: str = "Basic") -> dict:

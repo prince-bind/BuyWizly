@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="ShopSmart AI API", version="2.0.0", lifespan=lifespan)
+app = FastAPI(title="AskCart API", version="2.0.0", lifespan=lifespan)
 app.add_middleware(CORSMiddleware, allow_origins=settings.cors_list or ["*"],
                    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
                    allow_credentials=True, allow_methods=["*"], allow_headers=["*"])

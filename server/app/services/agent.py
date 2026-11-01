@@ -166,7 +166,7 @@ def _tool_compare(db: Session, msg: str) -> Prepared:
                     prompt=facts, fallback=fb)
 
 
-SMALLTALK = ("Hi! I'm ShopSmart's assistant. I can **find products** by need and budget, **track your orders**, "
+SMALLTALK = ("Hi! I'm AskCart's assistant. I can **find products** by need and budget, **track your orders**, "
              "**compare items**, and answer **return, shipping, warranty and payment** questions from our policies.")
 
 
