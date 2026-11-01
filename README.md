@@ -74,16 +74,18 @@ All settings are environment variables — see `server/.env.example`. Key ones:
 
 If Chroma is unreachable or errors at runtime, retrieval transparently falls back to an in-memory mirror, so the assistant keeps answering.
 
-## Deploy on Render (Neon + Chroma Cloud, no Docker)
+## Deploy backend on Render and frontend on Vercel (Neon + Chroma Cloud, no Docker)
 
-`render.yaml` defines both services: **`shopsmart-api`** (FastAPI web service) and **`shopsmart-web`** (React static site).
+`render.yaml` defines the **`shopsmart-api`** FastAPI web service. Deploy the `client` directory separately as a Vercel Vite project.
 
 1. **Neon:** create a project and copy the connection string.
 2. **Push** this repo to GitHub.
 3. **Render → New → Blueprint** → select the repo. When prompted, fill in:
    `DATABASE_URL` (Neon), `GROQ_API_KEY`, `CHROMA_API_KEY` / `CHROMA_TENANT` / `CHROMA_DATABASE` (leave blank to use in-memory search), and `ADMIN_EMAILS` (your email).
-4. **Check the URLs.** `render.yaml` assumes `https://shopsmart-api.onrender.com` and `https://shopsmart-web.onrender.com`. If Render gave your services different names, set `VITE_API_URL` (on the web service) and `CORS_ORIGINS` (on the API) to the real URLs — no trailing slash — and redeploy the web service, since `VITE_API_URL` is baked in at build time.
-5. **Verify:** open `<api-url>/api/health` → `database_connected: true`. Then open the site and sign up with your `ADMIN_EMAILS` address to get the **Admin** console.
+4. **Deploy the frontend on Vercel.** Import the repository, set the project root to `client`, and use the default Vite build settings (`npm run build`, output directory `dist`).
+5. Add `VITE_API_URL=https://<your-api-service>.onrender.com` to the Vercel project environment variables, then redeploy because Vite embeds this value at build time.
+6. Set `CORS_ORIGINS=https://<your-vercel-domain>` in the Render API environment variables, without a trailing slash. Add a comma-separated list if you use multiple frontend domains.
+7. **Verify:** open `<api-url>/api/health` → `database_connected: true`, then open the Vercel site and sign up with your `ADMIN_EMAILS` address to get the **Admin** console.
 
 Notes: the free API instance sleeps after ~15 min idle (first request then takes about a minute). After enabling Chroma, re-run `python -m eval.run_eval` and re-tune `RAG_MIN_SCORE`, because dense similarity scores differ from the TF-IDF baseline. CI: `.github/workflows/ci.yml`.
 
