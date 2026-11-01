@@ -1,0 +1,54 @@
+# Render Blueprint: Dashboard -> New -> Blueprint -> select this repo.
+# Values marked `sync: false` are asked for during setup; secrets are never committed.
+services:
+  # ------------------------------------------------------------------ API
+  - type: web
+    name: shopsmart-api
+    runtime: python
+    plan: free
+    rootDir: server
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: ENV
+        value: prod
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL          # Neon connection string
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
+      - key: VECTOR_BACKEND        # auto = Chroma Cloud when the keys below are set, otherwise in-memory search
+        value: auto
+      - key: CHROMA_API_KEY
+        sync: false
+      - key: CHROMA_TENANT
+        sync: false
+      - key: CHROMA_DATABASE
+        sync: false
+      - key: ADMIN_EMAILS          # your email: sign up with it to get the admin console
+        sync: false
+      - key: SEED_DEMO
+        value: "true"
+      - key: CORS_ORIGINS          # must equal the frontend URL below (no trailing slash)
+        value: https://shopsmart-web.onrender.com
+
+  # ------------------------------------------------------------------ Frontend (static site)
+  - type: web
+    name: shopsmart-web
+    runtime: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL          # must equal the API URL above (baked in at build time)
+        value: https://shopsmart-api.onrender.com

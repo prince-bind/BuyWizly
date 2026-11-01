@@ -1,0 +1,14 @@
+# dependencies / build output
+node_modules/
+dist/
+.venv/
+venv/
+__pycache__/
+*.pyc
+# secrets & local data
+.env
+*.db
+server/data/chroma/
+# tooling
+.pytest_cache/
+*.log

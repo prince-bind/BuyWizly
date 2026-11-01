@@ -1,0 +1,24 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install fastapi uvicorn sqlalchemy pydantic-settings "python-jose[cryptography]" bcrypt python-multipart pypdf email-validator httpx pytest
+        working-directory: server
+      - run: python -m pytest -q
+        working-directory: server
+      - run: python -m eval.run_eval
+        working-directory: server
+        env: { VECTOR_BACKEND: memory }
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install && npm run build
+        working-directory: client

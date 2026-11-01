@@ -1,0 +1,19 @@
+[
+ {"q": "How many days do I have to return a laptop?", "doc": "Returns & Refunds Policy", "must": ["7"]},
+ {"q": "What is the return window for headphones?", "doc": "Returns & Refunds Policy", "must": ["30"]},
+ {"q": "How long does a refund take?", "doc": "Returns & Refunds Policy", "must": ["5-7"]},
+ {"q": "Which items cannot be returned?", "doc": "Returns & Refunds Policy", "must": ["gift cards"]},
+ {"q": "Is delivery free for Prime members?", "doc": "Shipping & Delivery Policy", "must": ["free"]},
+ {"q": "What is the delivery charge for basic members under 999?", "doc": "Shipping & Delivery Policy", "must": ["99"]},
+ {"q": "How long does standard delivery take?", "doc": "Shipping & Delivery Policy", "must": ["3-5"]},
+ {"q": "What happens if delivery fails three times?", "doc": "Shipping & Delivery Policy", "must": ["warehouse"]},
+ {"q": "Until when can I cancel my order?", "doc": "Order Cancellation Policy", "must": ["Confirmed"]},
+ {"q": "Can I change my delivery address after ordering?", "doc": "Order Cancellation Policy", "must": ["cancel"]},
+ {"q": "Does the warranty cover accidental damage?", "doc": "Warranty Policy", "must": ["not"]},
+ {"q": "How long is the manufacturer warranty on electronics?", "doc": "Warranty Policy", "must": ["one-year", "year"]},
+ {"q": "How do I use the SAVE10 coupon?", "doc": "Prime Membership & Offers", "must": ["2,999", "2999"]},
+ {"q": "Can I combine two coupons?", "doc": "Prime Membership & Offers", "must": ["one coupon"]},
+ {"q": "Which payment methods do you accept?", "doc": "Payments & Privacy", "must": ["UPI"]},
+ {"q": "Do you sell my personal data?", "doc": "Payments & Privacy", "must": ["never"]},
+ {"q": "Money was debited but order not confirmed", "doc": "Payments & Privacy", "must": ["reversed"]}
+]
